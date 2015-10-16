@@ -1,0 +1,13 @@
+{
+  "name": "sir-pastes-a-lot",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "angularjs": "^1.4.7",
+    "bootstrap": "4.0.0-alpha"
+  },
+  "devDependencies": {
+    "chai": "~3.3.0",
+    "mocha": "~2.3.3"
+  }
+}

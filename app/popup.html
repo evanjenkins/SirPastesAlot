@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/main.css -->
+  <link href="styles/main.css" rel="stylesheet">
+  <!-- endbuild -->
+</head>
+<body>
+<div ng-controller="sirOptions" class="container" ng-init="getBins()">
+  <div ng-repeat="bin in pasteBins track by $index" class="row" ng-show="!addNew">
+    <div class="col-sm-12">
+      <a href="#" ng-click="pasteBin(bin)">Paste {{bin.title}}</a>
+    </div>
+  </div>
+
+</div>
+<!-- build:js scripts/vendor.js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angularjs/angular.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/options.js -->
+<script src="scripts/sirPastesAlot.js"></script>
+<script src="scripts/sirServices.js"></script>
+<script src="scripts/sirOptions.js"></script>
+<script src="scripts/options.js"></script>
+<!-- endbuild -->
+</body>
+</html>

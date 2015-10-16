@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link href="styles/main.css" rel="stylesheet">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div ng-controller="sirOptions" class="container" ng-init="getBins()">
+      <h3>Let's get to pastin'</h3>
+      <form class="col-sm-12" ng-show="addNew">
+        <div class="row">
+          <div class="form-group col-sm-12">
+            <label for="pastBinTitle">Title for Bin</label>
+            <input type="text" class="form-control" id="pastBinTitle" placeholder="Enter title" ng-model="newBin.title">
+          </div>
+          <div class="form-group col-sm-12">
+            <label for="pasteBinUrl">URL for bin</label>
+            <input type="text" class="form-control" id="pasteBinUrl" placeholder="Enter url for site to paste into." ng-model="newBin.url">
+          </div>
+          <div class="form-group col-sm-12">
+            <label for="pasteBinFieldId">Field Id</label>
+            <input type="text" class="form-control" id="pasteBinFieldId" placeholder="Enter id of field to fill" ng-model="newBin.fieldId">
+          </div>
+          <div class="form-group col-sm-12">
+            <label for="pasteBinContents">Paste Contents</label>
+            <textarea class="form-control" rows="3" id="pasteBinContents" ng-model="newBin.contents"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-12">
+            <a href="#" class="btn btn-primary" ng-click="addPasteBin(newBin)">Add</a>
+            <a href="#" class="btn btn-secondary" ng-click="cancelEdit()">Cancel</a>
+          </div>
+        </div>
+      </form>
+      <a href="#" class="btn btn-primary" ng-show="!addNew" ng-click="addNew = !addNew">Add New</a>
+      <hr />
+      <div ng-repeat="bin in pasteBins track by $index" class="row" ng-show="!addNew">
+        <div class="col-sm-12">
+          <h4>{{bin.title}}</h4>
+          <a ng-href="{{bin.url}}">{{bin.url}}</a>
+          <a href="#" ng-click="editBin(bin, $index)"><i class="glyphicon glyphicon-edit">Edit</i></a>
+          <a href="#" ng-click="deleteBin($index)"><i class="glyphicon glyphicon-trash">Delete</i></a>
+        </div>
+      </div>
+
+    </div>
+    <!-- build:js scripts/vendor.js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angularjs/angular.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/options.js -->
+    <script src="scripts/sirPastesAlot.js"></script>
+    <script src="scripts/sirServices.js"></script>
+    <script src="scripts/sirOptions.js"></script>
+    <script src="scripts/options.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
