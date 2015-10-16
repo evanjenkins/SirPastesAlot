@@ -2,8 +2,7 @@
   console.log("content script");
   chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
     if (request.command == "pasteBin"){
-      console.log(request);
-      var element = document.getElementById(request.bin.fieldId);
+      var element = document.querySelector(request.bin.fieldId);
       if (element) {
         element.value = request.bin.contents;
         sendResponse({ result: 1 });

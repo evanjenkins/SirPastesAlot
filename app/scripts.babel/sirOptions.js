@@ -18,7 +18,6 @@ sirPastesAlot.controller('sirOptions', ['$scope','sirServices',
     };
 
     $scope.addPasteBin = function(newBin) {
-      console.log($scope.editing);
       if ($scope.editing >= 0) {
         sirServices.cutBin($scope.editing).then(function(pasteBins) {
           //$scope.pasteBins = pasteBins;
