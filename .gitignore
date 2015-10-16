@@ -5,3 +5,5 @@ dist/
 node_modules/
 package/
 test/
+dist.crx
+dist.pem
