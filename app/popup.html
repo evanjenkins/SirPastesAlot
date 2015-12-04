@@ -11,10 +11,13 @@
 </head>
 <body>
 <div ng-controller="sirOptions" class="container" ng-init="getBins()">
+  <h4>Onward! To pastery!</h4>
+  <hr />
   <div ng-repeat="bin in pasteBins track by $index" class="row" ng-show="!addNew">
     <div class="col-sm-12">
-      <a href="#" ng-click="pasteBin(bin)">Paste {{bin.title}}</a>
+      <a href="#" class="btn btn-secondary btn-block" ng-click="pasteBin(bin)"><img ng-src="{{bin.url}}/favicon.ico" /> Paste {{bin.title}}</a>
     </div>
+    <hr />
   </div>
 
 </div>

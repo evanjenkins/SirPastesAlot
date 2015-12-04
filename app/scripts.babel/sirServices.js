@@ -5,14 +5,13 @@ sirPastesAlot.factory('sirServices', ['$q',
 
     api.getBins = function() {
       var deferred = $q.defer();
-
       chrome.storage.sync.get(["sirPasteBins"], function(result) {
         if (chrome.runtime.lastError) {
           deferred.reject("Could not load paste bins from chrome storage: " + chrome.runtime.lastError.message);
         }
         else {
           if (typeof result.sirPasteBins === 'undefined') {
-            deferred.reject("Undefined");
+            deferred.resolve([]);
           }
           else {
             deferred.resolve(result.sirPasteBins);
